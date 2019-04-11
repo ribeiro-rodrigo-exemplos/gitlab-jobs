@@ -1,0 +1,30 @@
+publish app: &publish
+  image: "garland/aws-cli-docker"
+  stage: publish
+  variables:
+    GIT_STRATEGY: none
+    AWS_S3_BUCKET: ${AWS_S3_BUCKET_DEV}
+    AWS_S3_PROJECT_FOLDER: ${CI_COMMIT_REF_NAME}
+  cache:
+    key: app-build
+    untracked: true
+    policy: pull
+  script:
+    - aws s3 rm --recursive s3://${AWS_S3_BUCKET}/${CI_PROJECT_NAME}/${AWS_S3_PROJECT_FOLDER}
+    - aws s3 cp --recursive ./build s3://${AWS_S3_BUCKET}/${CI_PROJECT_NAME}/${AWS_S3_PROJECT_FOLDER}
+    - env
+  only:
+    refs:
+      - branches
+  except:
+    variables:
+      - $CI_COMMIT_MESSAGE =~ /skip-dev-pipeline/
+
+release app:
+  <<: *publish
+  variables:
+    GIT_STRATEGY: none
+    AWS_S3_BUCKET: ${AWS_S3_BUCKET_PROD}
+    AWS_S3_PROJECT_FOLDER: ${CI_COMMIT_TAG}
+  only:
+    - tags
