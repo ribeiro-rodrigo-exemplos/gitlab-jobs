@@ -1,4 +1,4 @@
-publish app: &publish
+.publish app: 
   image: "garland/aws-cli-docker"
   stage: publish
   variables:
@@ -21,7 +21,7 @@ publish app: &publish
       - $CI_COMMIT_MESSAGE =~ /skip-dev-pipeline/
 
 release app:
-  <<: *publish
+  extends: .publish app
   variables:
     GIT_STRATEGY: none
     AWS_S3_BUCKET: ${AWS_S3_BUCKET_PROD}
