@@ -12,7 +12,6 @@ publish app: &publish
   script:
     - aws s3 rm --recursive s3://${AWS_S3_BUCKET}/${CI_PROJECT_NAME}/${AWS_S3_PROJECT_FOLDER}
     - aws s3 cp --recursive ./build s3://${AWS_S3_BUCKET}/${CI_PROJECT_NAME}/${AWS_S3_PROJECT_FOLDER}
-    - env
   only:
     refs:
       - branches
