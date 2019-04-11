@@ -10,6 +10,7 @@ build app:
       - build/
   script:
     - mkdir build
+    - env 
     - docker build --target build -t project-build .
     - docker container run --rm -v $(pwd)/build:/build project-build bash -c "mv /usr/src/app/${CI_PROJECT_NAME} /build"
   except:
