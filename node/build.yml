@@ -1,4 +1,5 @@
 build app:
+    image: node
     stage: build
     variables:
         FOLDER_BUILD: build
