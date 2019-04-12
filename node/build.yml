@@ -1,0 +1,21 @@
+build app:
+    stage: build
+    variables:
+        FOLDER_BUILD: build
+        FOLDER_PROJECT: project
+    cache:
+        key: app-build
+        policy: push
+        paths:
+            - build/
+    before_script:
+        - rm -rf .git/
+    script:
+        - cd ..
+        - mkdir ${FOLDER_BUILD} && mkdir ${FOLDER_PROJECT}
+        - tar -zcvf ${FOLDER_BUILD}/${PROJECT_NAME}.tar.gz ${PROJECT_NAME}/
+        - cp -r ${PROJECT_NAME}/* ${FOLDER_PROJECT}
+        - mv ${FOLDER_PROJECT} ${PROJECT_NAME}/
+        - mv ${FOLDER_BUILD} ${PROJECT_NAME}/
+        - cd ${PROJECT_NAME}/
+        - mv ${FOLDER_PROJECT} ${PROJECT_NAME}
