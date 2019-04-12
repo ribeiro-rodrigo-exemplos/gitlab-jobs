@@ -14,9 +14,9 @@ build app:
     script:
         - cd ..
         - mkdir ${FOLDER_BUILD} && mkdir ${FOLDER_PROJECT}
-        - tar -zcvf ${FOLDER_BUILD}/${PROJECT_NAME}.tar.gz ${PROJECT_NAME}/
-        - cp -r ${PROJECT_NAME}/* ${FOLDER_PROJECT}
-        - mv ${FOLDER_PROJECT} ${PROJECT_NAME}/
-        - mv ${FOLDER_BUILD} ${PROJECT_NAME}/
-        - cd ${PROJECT_NAME}/
-        - mv ${FOLDER_PROJECT} ${PROJECT_NAME}
+        - tar -zcvf ${FOLDER_BUILD}/${CI_PROJECT_NAME}.tar.gz ${CI_PROJECT_NAME}
+        - cp -r ${CI_PROJECT_NAME}/* ${FOLDER_PROJECT}
+        - mv ${FOLDER_PROJECT} ${CI_PROJECT_NAME}
+        - mv ${FOLDER_BUILD} ${CI_PROJECT_NAME}
+        - cd ${CI_PROJECT_NAME}
+        - mv ${FOLDER_PROJECT} ${CI_PROJECT_NAME}
