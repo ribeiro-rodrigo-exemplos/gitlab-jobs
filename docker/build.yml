@@ -11,7 +11,7 @@ build app:
   script:
     - mkdir build
     - docker build --target build -t project-build .
-    - docker container run --rm -v $(pwd)/build:/build project-build sh -c "mv /usr/src/app/* /build"
+    - docker container run --rm -v $(pwd)/build:/build project-build sh -c "mv /usr/dist/* /build"
   except:
     refs:
       - master
