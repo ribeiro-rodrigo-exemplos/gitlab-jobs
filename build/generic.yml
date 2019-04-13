@@ -1,12 +1,10 @@
 build app:
-    image: node
+    image: alpine:3.7
     stage: build
     variables:
         FOLDER_BUILD: build
         FOLDER_PROJECT: project
-    cache:
-        key: app-build
-        policy: push
+    artifacts:
         paths:
             - build/
     before_script:
