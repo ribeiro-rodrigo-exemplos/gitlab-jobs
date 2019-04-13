@@ -3,9 +3,7 @@ build app:
   stage: build
   services:
   - docker:dind
-  cache:
-    key: app-build
-    policy: push
+  artifacts:
     paths:
       - build/
   script:
