@@ -5,6 +5,7 @@ build app:
         FOLDER_BUILD: build
         FOLDER_PROJECT: project
     artifacts:
+        expire_in: 2h20min
         paths:
             - build/
     before_script:

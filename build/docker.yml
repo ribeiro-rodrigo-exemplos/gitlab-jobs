@@ -6,6 +6,7 @@ build app:
   services:
   - docker:dind
   artifacts:
+    expire_in: 2h20min
     paths:
       - build/
   script:
