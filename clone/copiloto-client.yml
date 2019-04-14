@@ -1,0 +1,6 @@
+clone copilotoClient:
+  extends: ".clone project"
+  variables:
+    GIT_STRATEGY: none
+    PROJECT_NAME: m2m-copiloto-client
+    PROJECT_GROUP: m2msolutions

@@ -1,0 +1,6 @@
+clone kernel:
+  extends: ".clone project"
+  variables:
+    GIT_STRATEGY: none
+    PROJECT_NAME: m2m-kernel
+    PROJECT_GROUP: m2msolutions

@@ -1,0 +1,6 @@
+clone javaBase:
+  extends: ".clone project"
+  variables:
+    GIT_STRATEGY: none
+    PROJECT_NAME: m2m-java-base
+    PROJECT_GROUP: m2msolutions
