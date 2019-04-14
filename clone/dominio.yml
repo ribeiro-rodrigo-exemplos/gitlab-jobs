@@ -1,0 +1,6 @@
+clone dominio:
+  extends: ".clone project"
+  variables:
+    GIT_STRATEGY: none
+    PROJECT_NAME: m2m-dominio
+    PROJECT_GROUP: m2msolutions
